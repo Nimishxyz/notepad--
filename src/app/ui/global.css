@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+.correct {
+    color: #6ece4f;
+  }
+  
+.incorrect {
+color: #be3127;
+}
+  
+p {
+    background-color: black;
+    color: white;
+}
