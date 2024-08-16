@@ -11,6 +11,7 @@ function findTypos(str1: string, str2: string) {
     });
     return typos;
 }
+
 const paragraphs = [
     "In a world where technology advances at a rapid pace, staying current with the latest trends and tools becomes essential. The integration of artificial intelligence into everyday applications has opened up new possibilities, transforming how we interact with our devices and access information. Whether it's through virtual assistants that help manage our schedules or algorithms that recommend content tailored to our interests, AI is becoming an increasingly integral part of our lives. As we embrace these innovations, it’s important to consider both the opportunities and the ethical implications they present, ensuring that technology serves to enhance our lives while respecting privacy and security.",
   
@@ -30,18 +31,20 @@ const paragraphs = [
   
     "Education is the cornerstone of personal and societal development, providing the knowledge and skills necessary to navigate the world. It opens doors to opportunities and empowers individuals to achieve their goals. In a rapidly changing world, education equips people with the critical thinking and problem-solving abilities needed to adapt and thrive. Beyond formal schooling, education is a lifelong pursuit, with learning opportunities available in every stage of life. Whether through academic study, vocational training, or self-directed learning, the process of education enriches lives and contributes to the progress of society as a whole.",
   ];
-  
-  
-const paragraph = paragraphs[Math.floor(Math.random() * paragraphs.length)];
 
 export default function Practice() {
-
     const [typedText, setTypedText] = useState("");
     const [speed, setSpeed] = useState(0);
     const [time, setTime] = useState<number | null>(null);
     const [elapsedTime, setElapsedTime] = useState(0);
     const [typoIndexes, setTypoIndexes] = useState<number[]>([]);
     const [isComplete, setIsComplete] = useState(false);
+    const [paragraph, setParagraph] = useState("");
+
+    useEffect(() => {
+        // Set the paragraph on the client side to avoid server-client mismatch
+        setParagraph(paragraphs[Math.floor(Math.random() * paragraphs.length)]);
+    }, []);
 
     useEffect(() => {
         setTypoIndexes(findTypos(paragraph, typedText));
@@ -70,12 +73,11 @@ export default function Practice() {
                 setIsComplete(true);
             }
         }
-    }, [typedText]);
+    }, [typedText, paragraph, time]);
 
     return (
         <html lang="en" className={roboto_mono.className}>
             <body className="bg-black overflow-hidden">
-                
                 <div className="flex flex-row items-center justify-center h-screen min-w-full">
                     <TextBox placeholder='Type Each Word Reversely.' disabled={false} text={typedText} setText={setTypedText} className='flex bg-black text-white text-2xl w-1/2 h-full h-screen'/>
                     <p className='bg-black text-white text-2xl w-1/2 h-full h-screen'>
@@ -121,7 +123,6 @@ export default function Practice() {
                                 </div>
                             </div>
                         </div>
-
                     </div>
                 )}
             </body>
