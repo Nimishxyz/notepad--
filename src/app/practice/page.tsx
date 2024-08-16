@@ -32,8 +32,9 @@ const paragraphs = [
   ];
   
   
+const paragraph = paragraphs[Math.floor(Math.random() * paragraphs.length)];
+
 export default function Practice() {
-    const paragraph = paragraphs[Math.floor(Math.random() * paragraphs.length)];
 
     const [typedText, setTypedText] = useState("");
     const [speed, setSpeed] = useState(0);

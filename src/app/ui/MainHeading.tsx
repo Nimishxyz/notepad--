@@ -4,7 +4,7 @@ export default function MainHeading() {
     return (
         //vertical and horizontal centering
         <div className="flex flex-col items-center justify-center h-screen">
-            <p className="underline text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl text-center text-transparent bg-clip-text bg-gradient-to-r from-cyan-500 to-blue-500 font-bold">
+            <p className="p-5 underline text-1xl sm:text-1xl md:text-2xl lg:text-3xl xl:text-4xl text-center text-transparent bg-clip-text bg-gradient-to-r from-cyan-500 to-blue-500 font-bold z-1000">
                 Bored with Traditional Typing? Try Reverse Typing!
             </p>            
             <h1 className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl xl:text-10xl text-center text-white font-bold py-10 sm:py-20">

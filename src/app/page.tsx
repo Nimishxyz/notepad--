@@ -20,6 +20,7 @@ export default function Page() {
 		  <p
 			className={`text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl m-1 p-4 sm:p-5 md:p-6 lg:p-7 xl:p-8 z-999 ${isAnimating ? 'animate-waving text-transparent bg-clip-text bg-gradient-to-r from-cyan-500 to-blue-500' : 'text-white opacity-10'}`}
 			onMouseEnter={handleMouseEnter}
+			style={{ userSelect: 'none' }}
 			onAnimationEnd={handleAnimationEnd}
 		  >
 			{String.fromCharCode(65 + (25 - index))}
@@ -33,7 +34,7 @@ export default function Page() {
 			<div key={`container-${i}`} className='flex flex-row items-center'>
 			  <AnimatedLetter index={i} />
 			  {i !== 25 && (
-			  <p className='text-white text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl opacity-10' style={{ lineHeight: '1' }}>
+			  <p style={{ userSelect: 'none' }} className='text-white text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl opacity-10'>
 			  ·
 			  </p>
 			  )}
