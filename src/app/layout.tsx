@@ -1,3 +1,6 @@
+import { inject } from '@vercel/analytics';
+ 
+inject();
 export const metadata = {
   title: 'Notepad--',
   description: 'Reverse Typing',
